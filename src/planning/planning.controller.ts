@@ -1,7 +1,9 @@
 import { Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
 import { UserService } from 'src/user/user.service';
 import { PlanningService } from './planning.service';
 
+@ApiTags('Planning')
 @Controller('planning')
 export class PlanningController {
   constructor(
