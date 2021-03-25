@@ -1,4 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
+import { User } from '../user.entity';
 
 export class UserDTO {
   @ApiProperty({
@@ -28,4 +29,9 @@ export class UserDTO {
     type: Number,
   })
   codeAdmin?: number;
+
+  @ApiProperty({
+    type: Array,
+  })
+  patients?: User[];
 }

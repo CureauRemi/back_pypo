@@ -28,4 +28,22 @@ export class UserController {
   delete(@Param('id') id: string) {
     return this.userService.delete(id);
   }
+
+  // GESTION DES PATIENTS
+
+  @Post(':idUser/patient/add/:idPatient')
+  async addPatient(
+    @Param('idUser') idUser: string,
+    @Param('idPatient') idPatient: string,
+  ) {
+    this.userService.addPatientToAUser(idPatient, idUser);
+  }
+
+  @Delete(':idUser/patient/remove/:idPatient')
+  async removePatient(
+    @Param('idUser') idUser: string,
+    @Param('idPatient') idPatient: string,
+  ) {
+    this.userService.removePatientToAUser(idPatient, idUser);
+  }
 }
