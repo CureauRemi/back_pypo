@@ -8,11 +8,7 @@ import { UserModule } from './user/user.module';
     PlanningModule,
 
     TypeOrmModule.forRoot({
-      type: 'mysql',
-      host: 'localhost',
-      port: 3306,
-      username: 'pypousr',
-      password: 'Pyp0USer',
+      type: 'sqlite',
       database: 'pypo',
       entities: [__dirname + '/**/**.entity{.ts,.js}'],
       synchronize: true,
