@@ -2,7 +2,6 @@ import { Planning } from 'src/planning/planning.entity';
 import {
   Column,
   Entity,
-  JoinColumn,
   ManyToOne,
   OneToMany,
   PrimaryGeneratedColumn,
@@ -27,6 +26,9 @@ export class User {
 
   @OneToMany(() => User, (user) => user.id)
   patients: User[];
+
+  @ManyToOne(() => User, (user) => user.patients)
+  owner: User;
 
   @Column('boolean')
   isAdmin: boolean;
