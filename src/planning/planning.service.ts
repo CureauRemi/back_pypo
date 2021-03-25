@@ -10,7 +10,9 @@ export class PlanningService {
     @InjectRepository(Planning)
     private readonly planningRepository: Repository<Planning>,
   ) {}
-
+  async getAll(): Promise<Planning[]> {
+    return await this.planningRepository.find();
+  }
   async getAllOfOneUser(user: User) {
     return await this.planningRepository.find({ where: { owner: user } });
   }

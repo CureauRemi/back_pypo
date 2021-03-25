@@ -11,10 +11,10 @@ export class Planning {
   name: string;
 
   @Column()
-  startDate: number;
+  startDate: Date;
 
   @Column()
-  endDate: number;
+  endDate: Date;
 
   @Column({ length: 500 })
   description: string;
