@@ -9,14 +9,14 @@ export class PlanningService {
   constructor(
     @InjectRepository(Planning)
     private readonly planningRepository: Repository<Planning>,
-  ) {}
+    ) {}
   async getAll(): Promise<Planning[]> {
     return await this.planningRepository.find();
   }
-  async getAllOfOneUser(user: User) {
+   async getAllOfOneUser(user: User) {
     return await this.planningRepository.find({ where: { owner: user } });
   }
-
+  
   async getOneEventOfOneUser(user: User, idPlanning: string) {
     return await this.planningRepository
       .createQueryBuilder('planning')
@@ -28,6 +28,7 @@ export class PlanningService {
   async createEventInPlanning(planning: Planning) {
     return await this.planningRepository.save(planning);
   }
+  
 
   async updateEventInPlanning(planning: Planning) {
     return await this.planningRepository.save(planning);
